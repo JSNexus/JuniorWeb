@@ -39,11 +39,11 @@ export default function Galeria() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-16 px-4">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-12">
-          Tete Júnior School gallery
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-12 m">
+          Gallery
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 ">
           {images.map((image, index) => (
             <motion.div
               key={index}

@@ -8,7 +8,6 @@ import {
   Heart,
   Star,
   Trophy,
-  Lightbulb,
   Globe,
 } from "lucide-react";
 import React from "react";
@@ -54,14 +53,37 @@ export default function Sobre() {
             <div className="p-8">
               <div className="flex items-center mb-6">
                 <BookOpen className="w-12 h-12 text-purple-600 mr-4" />
-                <h2 className="text-4xl font-bold text-purple-600">
-                  Nossa História
-                </h2>
+                <h2 className="text-4xl font-bold text-purple-600">About Us</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Fundada em 2010, a Escola Tete Junior nasceu com uma missão
-                revolucionária: transformar a educação infantil em uma jornada
-                de descobertas, criatividade e crescimento pessoal.
+                Tete Junior School is a distinguished educational institution
+                dedicated to fostering excellence in learning and nurturing the
+                holistic development of every student. Our school is proudly
+                registered and certified to deliver both international and
+                national curricula, combining global standards with local
+                relevance. At Tete Junior School, we believe in the power of an
+                innovative and personalized approach to education.
+              </p>
+              <br></br>
+              <p>
+                {" "}
+                Our mission is to empower students to achieve their fullest
+                potential by tailoring learning experiences to their unique
+                needs, interests, and abilities. We strive to cultivate an
+                inspiring and inclusive environment where students develop not
+                only academically but also socially, emotionally, and ethically.
+              </p>
+              <br></br>
+              <p>
+                {" "}
+                Our dedicated team of educators leverages cutting-edge teaching
+                methods and state-of-the-art facilities to ensure a
+                comprehensive and engaging learning journey. Join us at Tete
+                Junior School, where we prepare young minds to become
+                tomorrow&apos;s leaders, equipped with the knowledge, skills,
+                and values to excel in an ever-changing world. Together, we
+                create a community that values curiosity, creativity, and
+                lifelong learning.
               </p>
             </div>
           </motion.div>
@@ -77,13 +99,16 @@ export default function Sobre() {
                 <div className="flex items-center mb-6">
                   <Target className="w-10 h-10 text-purple-600 mr-4" />
                   <h3 className="text-3xl font-semibold text-purple-600">
-                    Missão
+                    Our Mission
                   </h3>
                 </div>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  Criar um ambiente de aprendizado transformador, onde cada
-                  criança é inspirada a explorar, questionar e desenvolver todo
-                  seu potencial único.
+                  Our mission is to provide high-quality education that fosters
+                  critical thinking, creativity, and social responsibility
+                  through a commitment to high academic standards and innovative
+                  teaching methods. We aim to develop citizens who are prepared
+                  to face the challenges of the modern world and contribute
+                  positively to society.
                 </p>
               </div>
             </motion.div>
@@ -97,13 +122,16 @@ export default function Sobre() {
                 <div className="flex items-center mb-6">
                   <Eye className="w-10 h-10 text-purple-600 mr-4" />
                   <h3 className="text-3xl font-semibold text-purple-600">
-                    Visão
+                    Our Vision
                   </h3>
                 </div>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  Ser reconhecida nacionalmente como uma instituição de
-                  excelência em educação infantil, formando cidadãos criativos,
-                  éticos e preparados para os desafios do futuro.
+                  To be recognized as the leading educational institution in
+                  pedagogical innovation and human development, promoting an
+                  inclusive, safe, welcoming, and inspiring educational
+                  environment where all students feel valued and have
+                  opportunities to reach their full potential without fear of
+                  discrimination or violence.
                 </p>
               </div>
             </motion.div>
@@ -117,15 +145,20 @@ export default function Sobre() {
                 <div className="flex items-center mb-6">
                   <Heart className="w-10 h-10 text-purple-600 mr-4" />
                   <h3 className="text-3xl font-semibold text-purple-600">
-                    Valores
+                    Main Objectives
                   </h3>
                 </div>
                 <ul className="space-y-4">
                   {[
-                    { icon: Star, text: "Excelência educacional" },
-                    { icon: Globe, text: "Inclusão e diversidade" },
-                    { icon: Lightbulb, text: "Inovação pedagógica" },
-                    { icon: Trophy, text: "Desenvolvimento integral" },
+                    {
+                      icon: Star,
+                      text: "To be an international and bilingual curriculum school.",
+                    },
+                    { icon: Globe, text: "To integrate educational values." },
+                    {
+                      icon: Trophy,
+                      text: "To have highly qualified and experienced staff.",
+                    },
                   ].map((value, index) => (
                     <li
                       key={index}

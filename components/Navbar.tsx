@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -10,9 +11,9 @@ export default function Navbar() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const menuLinks = [
-    { href: "/", label: "home" },
+    { href: "/", label: "Home" },
     { href: "about", label: "About" },
-    { href: "galeria", label: "gallery" },
+    { href: "galeria", label: "Gallery" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -27,9 +28,17 @@ export default function Navbar() {
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="text-2xl font-bold text-purple-600 cursor-pointer"
+          className="cursor-pointer"
         >
-          Tete Júnior School
+          <Link href="/">
+            <Image
+              src="/logo.svg" // Altere para o caminho correto do logo
+              alt="Logo"
+              width={40} // Specify width
+              height={40}
+              className="h-10 w-auto"
+            />
+          </Link>
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -46,24 +55,27 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Hamburger Menu Button */}
-        <div className="lg:hidden">
+        <div className="lg:hidden pr-4">
           <button
             onClick={toggleMenu}
-            className="relative w-8 h-6 focus:outline-none"
+            className="relative w-8 h-8 flex items-center justify-center focus:outline-none"
             aria-label="Toggle mobile menu"
           >
+            {/* Linha superior */}
             <span
-              className={`absolute h-0.5 w-full bg-gray-800 transform transition duration-300 ease-in-out ${
-                menuOpen ? "rotate-45 top-3" : "top-0"
+              className={`absolute h-0.5 w-full bg-gray-800 transform transition-transform duration-300 ease-in-out ${
+                menuOpen ? "rotate-45 top-3" : "top-2"
               }`}
             />
+            {/* Linha do meio */}
             <span
-              className={`absolute h-0.5 w-full bg-gray-800 top-3 transition duration-300 ease-in-out ${
-                menuOpen ? "opacity-0" : "opacity-100"
+              className={`absolute h-0.5 w-full bg-gray-800 transform transition-opacity duration-300 ease-in-out ${
+                menuOpen ? "opacity-0" : "opacity-100 top-4"
               }`}
             />
+            {/* Linha inferior */}
             <span
-              className={`absolute h-0.5 w-full bg-gray-800 transform transition duration-300 ease-in-out ${
+              className={`absolute h-0.5 w-full bg-gray-800 transform transition-transform duration-300 ease-in-out ${
                 menuOpen ? "-rotate-45 top-3" : "top-6"
               }`}
             />

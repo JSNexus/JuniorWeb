@@ -7,13 +7,41 @@ import {
   PaintBucket,
   Trophy,
 } from "lucide-react";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-// Custom hook for counter animation
-const useCounterAnimation = (end: number, duration: number = 2000): number => {
+const useCounterAnimation = (end: number, duration: number = 2000) => {
   const [count, setCount] = useState<number>(0);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const counterRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentRef = counterRef.current; // Capture current ref value
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+          setCount(0);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
     let start = 0;
     const timer = setInterval(() => {
       start += Math.ceil(end / (duration / 50));
@@ -26,9 +54,9 @@ const useCounterAnimation = (end: number, duration: number = 2000): number => {
     }, 50);
 
     return () => clearInterval(timer);
-  }, [end, duration]);
+  }, [end, duration, isVisible]);
 
-  return count;
+  return { count, counterRef }; // Returned as an object with both count and counterRef
 };
 
 // Define types for CounterItem props
@@ -46,10 +74,13 @@ const CounterItem: React.FC<CounterItemProps> = ({
   label,
   color,
 }) => {
-  const count = useCounterAnimation(end);
+  const { count, counterRef } = useCounterAnimation(end);
 
   return (
-    <div className="bg-white shadow-lg rounded-xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl text-center">
+    <div
+      ref={counterRef}
+      className="bg-white shadow-lg rounded-xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl text-center"
+    >
       <div
         className={`w-20 h-20 mx-auto mb-4 flex items-center justify-center rounded-full ${color} text-white`}
       >

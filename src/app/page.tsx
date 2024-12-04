@@ -39,7 +39,7 @@ export default function Home() {
         <HomeSection />
 
         {/* Título e descrição acima dos cartões */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 mt-10">
           <h2 className="text-4xl font-bold text-primary mb-4">
             Explore Our Subjects
           </h2>
