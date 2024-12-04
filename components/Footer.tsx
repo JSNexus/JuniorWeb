@@ -15,38 +15,23 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
+          <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-2">
             <li>
               <a
-                href="/sobre"
+                href="/about"
                 className="hover:text-blue-300 transition-colors"
               >
-                Sobre Nós
+                About Us
               </a>
             </li>
+
             <li>
               <a
-                href="/cursos"
+                href="#contact"
                 className="hover:text-blue-300 transition-colors"
               >
-                Cursos
-              </a>
-            </li>
-            <li>
-              <a
-                href="/admissao"
-                className="hover:text-blue-300 transition-colors"
-              >
-                Admissão
-              </a>
-            </li>
-            <li>
-              <a
-                href="/contato"
-                className="hover:text-blue-300 transition-colors"
-              >
-                Contato
+                Contact
               </a>
             </li>
           </ul>
@@ -101,7 +86,7 @@ export default function Footer() {
           </a>
         </div>
         <p className="text-sm text-gray-300">
-          © 2024 Tete Junior School. Todos os direitos reservados.
+          © 2024 Nexus JR. Todos os direitos reservados.
         </p>
       </div>
     </footer>

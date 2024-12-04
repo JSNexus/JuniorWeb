@@ -2,34 +2,64 @@
 
 import Contato from "../../components/Contato";
 import Footer from "../../components/Footer";
-//import Galeria from "../../components/Galeria";
 import HomeSection from "../../components/HomeSection";
 import Navbar from "../../components/Navbar";
 import SchoolCounters from "../../components/SchoolCounters";
-//import Sobre from "../../components/Sobre";
 import { SubjectCard } from "../../components/Subject-card";
 import {
-  Code2,
-  Frame,
-  Music,
+  Palette,
+  Music2,
+  BookOpen,
+  Rocket,
+  Coffee,
+  PenTool,
   Laptop,
-  Eye,
-  Brain,
-  Scissors,
-  Camera,
+  Globe,
 } from "lucide-react";
 
 export default function Home() {
-  // Definindo as informações dos subjects
+  // Definindo as informações dos subjects com novos ícones e cores
   const subjects = [
-    { title: "Development", icon: Code2, href: "/development" },
-    { title: "Design", icon: Frame, href: "/design" },
-    { title: "Music", icon: Music, href: "/music" },
-    { title: "Computer science", icon: Laptop, href: "/computer-science" },
-    { title: "Animation", icon: Eye, href: "/animation" },
-    { title: "Machine learning", icon: Brain, href: "/machine-learning" },
-    { title: "Art and drawing", icon: Scissors, href: "/art-and-drawing" },
-    { title: "Photography", icon: Camera, href: "/photography" },
+    {
+      title: "Art & Drawing",
+      icon: Palette,
+      color: "#FF6B6B", // Soft Red
+    },
+    {
+      title: "Music",
+      icon: Music2,
+      color: "#4ECDC4", // Teal
+    },
+    {
+      title: "Reading",
+      icon: BookOpen,
+      color: "#45B7D1", // Sky Blue
+    },
+    {
+      title: "Science",
+      icon: Rocket,
+      color: "#FDCB6E", // Warm Yellow
+    },
+    {
+      title: "Creative Writing",
+      icon: PenTool,
+      color: "#A8E6CF", // Mint Green
+    },
+    {
+      title: "Technology",
+      icon: Laptop,
+      color: "#FF8ED4", // Soft Pink
+    },
+    {
+      title: "World Explorers",
+      icon: Globe,
+      color: "#5f27cd", // Deep Purple
+    },
+    {
+      title: "Creativity",
+      icon: Coffee,
+      color: "#6C5CE7", // Purple
+    },
   ];
 
   return (
@@ -39,30 +69,31 @@ export default function Home() {
         <HomeSection />
 
         {/* Título e descrição acima dos cartões */}
-        <div className="text-center mb-12 mt-10">
-          <h2 className="text-4xl font-bold text-primary mb-4">
-            Explore Our Subjects
-          </h2>
-          <p className="text-muted-foreground">
-            Choose a subject to dive deep into various topics and start your
-            learning journey.
-          </p>
-        </div>
+        <section className="py-16 px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              Key Areas of Learning at Tete Junior School
+            </h2>
+            {/*<p className="text-gray-600 max-w-2xl mx-auto">
+              Discover a world of fun and learning with our engaging educational
+              activities!
+            </p>*/}
+          </div>
 
-        {/* Exibindo os SubjectCards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {subjects.map((subject) => (
-            <SubjectCard
-              key={subject.title}
-              title={subject.title}
-              icon={subject.icon}
-              href={subject.href}
-            />
-          ))}
-        </div>
+          {/* Exibindo os SubjectCards */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {subjects.map((subject) => (
+              <SubjectCard
+                key={subject.title}
+                title={subject.title}
+                icon={subject.icon}
+                color={subject.color}
+              />
+            ))}
+          </div>
+        </section>
+
         <SchoolCounters />
-        {/*<Sobre />*/}
-        {/* <Galeria />*/}
         <Contato />
       </main>
       <Footer />

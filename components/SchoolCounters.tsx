@@ -142,10 +142,10 @@ export const SchoolCounters: React.FC = () => {
           <h2 className="text-4xl font-bold text-primary mb-4">
             Our School at a Glance
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          {/* <p className="text-muted-foreground max-w-2xl mx-auto">
             Discover the vibrant world of learning and growth at our school,
             where every number tells a story of achievement and potential.
-          </p>
+          </p>*/}
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
