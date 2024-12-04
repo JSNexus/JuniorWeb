@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -45,9 +46,11 @@ export default function Galeria() {
               className="flex justify-center items-center"
             >
               <div className="relative w-full max-w-xl mx-auto">
-                <img
+                <Image
                   src={src}
                   alt={`Galeria ${index + 1}`}
+                  width={100}
+                  height={100}
                   className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover rounded-2xl shadow-xl 
                     transition-all duration-500"
                 />

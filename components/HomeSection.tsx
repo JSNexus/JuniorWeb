@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import {
   NotebookIcon,
   PencilIcon,
@@ -8,9 +8,15 @@ import {
   PenIcon,
   PaletteIcon,
   ScissorsIcon,
+  LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+
+interface SchoolSupply {
+  icon: LucideIcon;
+  color: string;
+}
 
 export default function HomeSection() {
   const [isMounted, setIsMounted] = useState(false);
@@ -19,7 +25,7 @@ export default function HomeSection() {
     setIsMounted(true);
   }, []);
 
-  const schoolSupplies = [
+  const schoolSupplies: SchoolSupply[] = [
     { icon: NotebookIcon, color: "text-blue-500" },
     { icon: PencilIcon, color: "text-green-500" },
     { icon: EraserIcon, color: "text-gray-600" },
@@ -28,13 +34,13 @@ export default function HomeSection() {
     { icon: ScissorsIcon, color: "text-orange-500" },
   ];
 
-  const fallingVariants = {
+  const fallingVariants: Variants = {
     hidden: {
       y: -100,
       opacity: 0,
       rotate: Math.random() * 360,
     },
-    visible: (custom) => ({
+    visible: (custom: number) => ({
       y: 0,
       opacity: 1,
       rotate: 0,

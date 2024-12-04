@@ -2,10 +2,10 @@
 
 import Contato from "../../components/Contato";
 import Footer from "../../components/Footer";
-import Galeria from "../../components/Galeria";
+//import Galeria from "../../components/Galeria";
 import HomeSection from "../../components/HomeSection";
 import Navbar from "../../components/Navbar";
-import Sobre from "../../components/Sobre";
+//import Sobre from "../../components/Sobre";
 import { SubjectCard } from "../../components/Subject-card";
 import {
   Code2,

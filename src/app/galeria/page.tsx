@@ -2,12 +2,20 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Expand } from "lucide-react";
+import Image from "next/image";
 import React, { useState } from "react";
 
-export default function Galeria() {
-  const [selectedImage, setSelectedImage] = useState(null);
+// Define the type for the image object
+interface ImageData {
+  src: string;
+  alt: string;
+}
 
-  const images = [
+export default function Galeria() {
+  // Explicitly type the state with the ImageData interface or null
+  const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
+
+  const images: ImageData[] = [
     { src: "/galeria/1.jpg", alt: "Crianças brincando no parquinho" },
     { src: "/galeria/2.jpg", alt: "Aula de artes colorida" },
     { src: "/galeria/3.jpg", alt: "Momento de leitura compartilhada" },
@@ -19,7 +27,8 @@ export default function Galeria() {
     { src: "/galeria/9.jpg", alt: "Atividade de educação física" },
   ];
 
-  const openImageModal = (image) => {
+  // Add type annotation for the image parameter
+  const openImageModal = (image: ImageData) => {
     setSelectedImage(image);
   };
 
@@ -44,9 +53,11 @@ export default function Galeria() {
               onClick={() => openImageModal(image)}
             >
               <div className="relative overflow-hidden">
-                <img
+                <Image
                   src={image.src}
                   alt={image.alt}
+                  width={100}
+                  height={100}
                   className="w-full h-48 md:h-64 lg:h-80 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
@@ -82,9 +93,11 @@ export default function Galeria() {
                 >
                   <X size={32} />
                 </button>
-                <img
+                <Image
                   src={selectedImage.src}
                   alt={selectedImage.alt}
+                  width={100}
+                  height={100}
                   className="w-full max-h-[80vh] object-contain rounded-lg"
                 />
                 <p className="text-center text-white mt-4 text-lg">
