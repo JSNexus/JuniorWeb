@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 //import Galeria from "../../components/Galeria";
 import HomeSection from "../../components/HomeSection";
 import Navbar from "../../components/Navbar";
+import SchoolCounters from "../../components/SchoolCounters";
 //import Sobre from "../../components/Sobre";
 import { SubjectCard } from "../../components/Subject-card";
 import {
@@ -39,7 +40,9 @@ export default function Home() {
 
         {/* Título e descrição acima dos cartões */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-semibold mb-4">Explore Our Subjects</h2>
+          <h2 className="text-4xl font-bold text-primary mb-4">
+            Explore Our Subjects
+          </h2>
           <p className="text-muted-foreground">
             Choose a subject to dive deep into various topics and start your
             learning journey.
@@ -57,6 +60,7 @@ export default function Home() {
             />
           ))}
         </div>
+        <SchoolCounters />
         {/*<Sobre />*/}
         {/* <Galeria />*/}
         <Contato />
