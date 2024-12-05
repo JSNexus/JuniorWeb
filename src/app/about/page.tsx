@@ -52,8 +52,8 @@ export default function Sobre() {
           >
             <div className="p-8">
               <div className="flex items-center mb-6">
-                <BookOpen className="w-12 h-12 text-purple-600 mr-4" />
-                <h2 className="text-4xl font-bold text-purple-600">About Us</h2>
+                <BookOpen className="w-12 h-12 text-blue-600 mr-4" />
+                <h2 className="text-4xl font-bold text-blue-600">About Us</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed">
                 Tete Junior School is a distinguished educational institution
@@ -97,8 +97,8 @@ export default function Sobre() {
             >
               <div className="p-8">
                 <div className="flex items-center mb-6">
-                  <Target className="w-10 h-10 text-purple-600 mr-4" />
-                  <h3 className="text-3xl font-semibold text-purple-600">
+                  <Target className="w-10 h-10 text-blue-600 mr-4" />
+                  <h3 className="text-3xl font-semibold text-blue-600">
                     Our Mission
                   </h3>
                 </div>
@@ -120,8 +120,8 @@ export default function Sobre() {
             >
               <div className="p-8">
                 <div className="flex items-center mb-6">
-                  <Eye className="w-10 h-10 text-purple-600 mr-4" />
-                  <h3 className="text-3xl font-semibold text-purple-600">
+                  <Eye className="w-10 h-10 text-blue-600 mr-4" />
+                  <h3 className="text-3xl font-semibold text-blue-600">
                     Our Vision
                   </h3>
                 </div>
@@ -143,8 +143,8 @@ export default function Sobre() {
             >
               <div className="p-8">
                 <div className="flex items-center mb-6">
-                  <Heart className="w-10 h-10 text-purple-600 mr-4" />
-                  <h3 className="text-3xl font-semibold text-purple-600">
+                  <Heart className="w-10 h-10 text-blue-600 mr-4" />
+                  <h3 className="text-3xl font-semibold text-blue-600">
                     Main Objectives
                   </h3>
                 </div>
@@ -164,7 +164,7 @@ export default function Sobre() {
                       key={index}
                       className="flex items-center text-gray-700 text-lg"
                     >
-                      <value.icon className="w-6 h-6 mr-3 text-purple-500" />
+                      <value.icon className="w-6 h-6 mr-3 text-blue-500" />
                       {value.text}
                     </li>
                   ))}

@@ -67,7 +67,7 @@ export default function Contato() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Name"
-                  className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-all duration-300"
+                  className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition-all duration-300"
                   required
                 />
               </div>

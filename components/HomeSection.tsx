@@ -6,8 +6,9 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ArrowRightIcon,
+  XIcon,
+  PlayIcon,
 } from "lucide-react";
-import Link from "next/link";
 import React, { useState } from "react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,6 +17,8 @@ import "swiper/css/effect-fade";
 
 export default function HomeSection() {
   const [date, setDate] = useState<Date | undefined>(new Date());
+  const [isCardVisible, setIsCardVisible] = useState(true);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const backgroundImages = [
     "/galeria/1.jpg",
@@ -52,6 +55,55 @@ export default function HomeSection() {
         </Swiper>
       </div>
 
+      {isVideoModalOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            className="relative w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden"
+          >
+            <div className="absolute top-4 right-4 z-10">
+              <button
+                onClick={() => setIsVideoModalOpen(false)}
+                className="bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition"
+                aria-label="Close video modal"
+              >
+                <XIcon className="h-6 w-6" />
+              </button>
+            </div>
+
+            <div className="relative pt-[56.25%]">
+              {" "}
+              {/* 16:9 Aspect Ratio Container */}
+              <video
+                src="/video/about.mp4"
+                controls
+                autoPlay
+                className="absolute top-0 left-0 w-full h-full object-cover"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div className="p-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+              <div className="flex items-center justify-between">
+                <h2 className="text-2xl font-bold flex items-center">
+                  <PlayIcon className="mr-3 h-6 w-6" />
+                  Discover Our Academic Journey
+                </h2>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+
+      {/* Rest of the existing code remains the same */}
       <div className="relative z-10 flex w-full">
         <div className="w-1/2 hidden md:block"></div>
         <div className="w-full md:w-1/2 flex items-center justify-center p-8">
@@ -72,28 +124,40 @@ export default function HomeSection() {
               Empowering Students, Inspiring Futures
             </motion.p>
 
-            <div className="relative">
-              <Card className="w-full border-none shadow-lg">
-                <CardHeader className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-t-xl">
-                  <CardTitle className="flex items-center justify-center">
-                    <CalendarIcon className="mr-2" />
-                    School Calendar
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-4 relative">
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    className="w-full"
-                    components={{
-                      IconLeft: () => <ChevronLeftIcon className="h-4 w-4" />,
-                      IconRight: () => <ChevronRightIcon className="h-4 w-4" />,
-                    }}
-                  />
-                </CardContent>
-              </Card>
-            </div>
+            {isCardVisible && (
+              <div className="relative">
+                <button
+                  onClick={() => setIsCardVisible(false)}
+                  className="absolute top-2 right-2 bg-gray-200 text-gray-600 rounded-full p-2 hover:bg-gray-300 transition z-20"
+                  aria-label="Close card"
+                >
+                  <XIcon className="h-5 w-5" />
+                </button>
+
+                <Card className="w-full border-none shadow-lg">
+                  <CardHeader className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-t-xl">
+                    <CardTitle className="flex items-center justify-center">
+                      <CalendarIcon className="mr-2" />
+                      School Calendar
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-4 relative">
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={setDate}
+                      className="w-full"
+                      components={{
+                        IconLeft: () => <ChevronLeftIcon className="h-4 w-4" />,
+                        IconRight: () => (
+                          <ChevronRightIcon className="h-4 w-4" />
+                        ),
+                      }}
+                    />
+                  </CardContent>
+                </Card>
+              </div>
+            )}
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -101,12 +165,18 @@ export default function HomeSection() {
               transition={{ delay: 0.2 }}
               className="mt-6 flex justify-center"
             >
-              <Link href="/about" className="w-full max-w-xs">
-                <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 rounded-lg hover:opacity-90 transition-all">
-                  Explore Our School
-                  <ArrowRightIcon className="h-5 w-5" />
-                </button>
-              </Link>
+              <button
+                onClick={() => setIsVideoModalOpen(true)}
+                className="w-full max-w-xs flex items-center justify-center gap-2 
+                           bg-gradient-to-r from-purple-600 to-blue-600 
+                           text-white py-3 rounded-lg 
+                           border-2 border-white/20 
+                           hover:opacity-90 hover:shadow-lg 
+                           transition-all"
+              >
+                Discover Our School
+                <ArrowRightIcon className="h-5 w-5" />
+              </button>
             </motion.div>
           </div>
         </div>

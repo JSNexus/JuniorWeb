@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import HomeSection from "../../components/HomeSection";
 import Navbar from "../../components/Navbar";
 import SchoolCounters from "../../components/SchoolCounters";
+import SchoolFAQ from "../../components/SchoolFAQ";
 import { SubjectCard } from "../../components/Subject-card";
 import {
   Palette,
@@ -94,6 +95,7 @@ export default function Home() {
         </section>
 
         <SchoolCounters />
+        <SchoolFAQ />
         <Contato />
       </main>
       <Footer />
