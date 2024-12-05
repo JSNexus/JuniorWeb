@@ -9,7 +9,7 @@ const ElegantNavbar = () => {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/gallery", label: "Gallery" },
+    { href: "/galeria", label: "Gallery" },
     { href: "/#contact", label: "Contact" },
     { href: "/#faq", label: "FAQ" },
   ];
