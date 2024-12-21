@@ -1,18 +1,15 @@
 "use client";
 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
-import {
-  BookOpen,
-  Target,
-  Eye,
-  Heart,
-  Star,
-  Trophy,
-  Globe,
-} from "lucide-react";
+import { Star, Trophy, Globe } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function Sobre() {
+  const router = useRouter();
+
   const sectionVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -37,143 +34,154 @@ export default function Sobre() {
   };
 
   return (
-    <section className="bg-gradient-to-br from-purple-50 to-white py-16 px-4">
-      <div className="container mx-auto">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={sectionVariants}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {/* História Section */}
-          <motion.div
-            variants={cardVariants}
-            className="bg-white shadow-2xl rounded-2xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-3xl"
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-r from-blue-700 to-blue-600 text-white py-16">
+        <div className="container mx-auto px-6">
+          <button
+            onClick={() => router.push("/")}
+            className="flex items-center mb-6 text-white hover:text-blue-200 transition-colors"
           >
-            <div className="p-8">
-              <div className="flex items-center mb-6">
-                <BookOpen className="w-12 h-12 text-blue-600 mr-4" />
-                <h2 className="text-4xl font-bold text-blue-600">About Us</h2>
-              </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                Tete Junior School is a distinguished educational institution
-                dedicated to fostering excellence in learning and nurturing the
-                holistic development of every student. Our school is proudly
-                registered and certified to deliver both international and
-                national curricula, combining global standards with local
-                relevance. At Tete Junior School, we believe in the power of an
-                innovative and personalized approach to education.
-              </p>
-              <br></br>
-              <p>
-                {" "}
-                Our mission is to empower students to achieve their fullest
-                potential by tailoring learning experiences to their unique
-                needs, interests, and abilities. We strive to cultivate an
-                inspiring and inclusive environment where students develop not
-                only academically but also socially, emotionally, and ethically.
-              </p>
-              <br></br>
-              <p>
-                {" "}
-                Our dedicated team of educators leverages cutting-edge teaching
-                methods and state-of-the-art facilities to ensure a
-                comprehensive and engaging learning journey. Join us at Tete
-                Junior School, where we prepare young minds to become
-                tomorrow&apos;s leaders, equipped with the knowledge, skills,
-                and values to excel in an ever-changing world. Together, we
-                create a community that values curiosity, creativity, and
-                lifelong learning.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Right Side Sections */}
-          <div className="space-y-8">
-            {/* Missão */}
-            <motion.div
-              variants={cardVariants}
-              className="bg-white shadow-2xl rounded-2xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-3xl"
-            >
-              <div className="p-8">
-                <div className="flex items-center mb-6">
-                  <Target className="w-10 h-10 text-blue-600 mr-4" />
-                  <h3 className="text-3xl font-semibold text-blue-600">
-                    Our Mission
-                  </h3>
-                </div>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Our mission is to provide high-quality education that fosters
-                  critical thinking, creativity, and social responsibility
-                  through a commitment to high academic standards and innovative
-                  teaching methods. We aim to develop citizens who are prepared
-                  to face the challenges of the modern world and contribute
-                  positively to society.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Visão */}
-            <motion.div
-              variants={cardVariants}
-              className="bg-white shadow-2xl rounded-2xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-3xl"
-            >
-              <div className="p-8">
-                <div className="flex items-center mb-6">
-                  <Eye className="w-10 h-10 text-blue-600 mr-4" />
-                  <h3 className="text-3xl font-semibold text-blue-600">
-                    Our Vision
-                  </h3>
-                </div>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  To be recognized as the leading educational institution in
-                  pedagogical innovation and human development, promoting an
-                  inclusive, safe, welcoming, and inspiring educational
-                  environment where all students feel valued and have
-                  opportunities to reach their full potential without fear of
-                  discrimination or violence.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Valores */}
-            <motion.div
-              variants={cardVariants}
-              className="bg-white shadow-2xl rounded-2xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-3xl"
-            >
-              <div className="p-8">
-                <div className="flex items-center mb-6">
-                  <Heart className="w-10 h-10 text-blue-600 mr-4" />
-                  <h3 className="text-3xl font-semibold text-blue-600">
-                    Main Objectives
-                  </h3>
-                </div>
-                <ul className="space-y-4">
-                  {[
-                    {
-                      icon: Star,
-                      text: "To be an international and bilingual curriculum school.",
-                    },
-                    { icon: Globe, text: "To integrate educational values." },
-                    {
-                      icon: Trophy,
-                      text: "To have highly qualified and experienced staff.",
-                    },
-                  ].map((value, index) => (
-                    <li
-                      key={index}
-                      className="flex items-center text-gray-700 text-lg"
-                    >
-                      <value.icon className="w-6 h-6 mr-3 text-blue-500" />
-                      {value.text}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
+            <ArrowLeft className="w-5 h-5 mr-2" />
+            Back to Home
+          </button>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
+          <p className="text-lg md:text-xl max-w-3xl">
+            Discover our mission, vision, and values that drive our commitment
+            to educational excellence and innovation.
+          </p>
+        </div>
       </div>
-    </section>
+
+      {/* Main Content Section with Tabs */}
+      <section className="py-4">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={sectionVariants}
+            className="bg-white shadow-2xl rounded-xl overflow-hidden"
+          >
+            <Tabs defaultValue="about" className="w-full">
+              <div className="bg-black p-6 border-b">
+                <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3">
+                  <TabsTrigger
+                    value="about"
+                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-8 py-3 transition-all duration-300"
+                  >
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="font-medium text-white">About</span>
+                    </div>
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="mission"
+                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-8 py-3 transition-all duration-300 "
+                  >
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="font-medium text-white">Mission</span>
+                    </div>
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="vision"
+                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-8 py-3 transition-all duration-300 "
+                  >
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="font-medium text-white">Vision</span>
+                    </div>
+                  </TabsTrigger>
+                </TabsList>
+              </div>
+
+              <div className="p-8 py-2">
+                <TabsContent value="about" className="mt-3">
+                  <motion.div
+                    variants={cardVariants}
+                    className="space-y-6 max-w-4xl mx-auto"
+                  >
+                    <p className="text-gray-700  text-justify leading-relaxed">
+                      Tete Junior School is a distinguished educational
+                      institution dedicated to fostering excellence in learning
+                      and nurturing holistic development. We are proudly
+                      certified to deliver both international and national
+                      curricula, combining global standards with local
+                      relevance.
+                    </p>
+                    <p className="text-gray-700  text-justify leading-relaxed">
+                      Our mission is to empower students to achieve their
+                      fullest potential by tailoring learning experiences to
+                      their unique needs, interests, and abilities. We cultivate
+                      an inspiring and inclusive environment where students
+                      develop academically, socially, emotionally, and
+                      ethically.
+                    </p>
+                  </motion.div>
+                </TabsContent>
+
+                <TabsContent value="mission" className="mt-6">
+                  <motion.div className="space-y-6 max-w-4xl mx-auto">
+                    <div className="flex items-center gap-4 mb-8">
+                      <h3 className="text-xl font-bold text-gray-800">
+                        Our Mission
+                      </h3>
+                    </div>
+                    <p className="text-gray-700 text-justify leading-relaxed">
+                      Providing high-quality education that fosters critical
+                      thinking, creativity, and social responsibility through
+                      innovative teaching methods and high academic standards.
+                    </p>
+                    <div className="mt-8 bg-blue-50 rounded-xl p-6">
+                      <h4 className="text-xl font-semibold text-blue-800 mb-4">
+                        Key Objectives
+                      </h4>
+                      <ul className="space-y-4 ">
+                        {[
+                          {
+                            icon: Star,
+                            text: "Be an international and bilingual curriculum school.",
+                          },
+                          {
+                            icon: Globe,
+                            text: "Integrate core educational values.",
+                          },
+                          {
+                            icon: Trophy,
+                            text: "Employ highly qualified and experienced staff.",
+                          },
+                        ].map((value, index) => (
+                          <li
+                            key={index}
+                            className="flex items-center text-gray-700  bg-white p-4 rounded-lg shadow-sm "
+                          >
+                            <value.icon className="w-6 h-6 mr-4 text-blue-500 flex-shrink-0" />
+                            <span>{value.text}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                </TabsContent>
+
+                <TabsContent value="vision" className="mt-6">
+                  <motion.div className="space-y-6 max-w-4xl mx-auto">
+                    <div className="flex items-center gap-4 mb-8">
+                      <h3 className="text-xl font-bold text-gray-800">
+                        Our Vision
+                      </h3>
+                    </div>
+                    <div className="bg-gradient-to-r from-blue-50 to-blue-50 p-8 rounded-xl">
+                      <p className="text-gray-700 text-justify leading-relaxed">
+                        To be a leader in pedagogical innovation, promoting an
+                        inclusive and inspiring educational environment where
+                        all students can thrive.
+                      </p>
+                    </div>
+                  </motion.div>
+                </TabsContent>
+              </div>
+            </Tabs>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }
